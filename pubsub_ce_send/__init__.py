@@ -15,7 +15,7 @@ pgroup.add_argument("--payload", dest="payload", nargs="?", help="payload", defa
 pgroup.add_argument("--payload-from", dest="payload", nargs="?", help="payload from file", type=argparse.FileType())
 parser.add_argument("--gcp-credentials-from", dest="credentials", nargs="?", help="google cloud credentials file")
 parser.add_argument("--topic", dest="topic", nargs="?", help="pubsub topic", required=True)
-parser.add_argument("--attrs", dest="attrs", nargs="+", help="extended attributes")
+parser.add_argument("--attrs", dest="attrs", nargs="+", help="extended attributes", default=[])
 ""
 def main():
     args = parser.parse_args()
