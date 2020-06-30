@@ -44,7 +44,7 @@ def main():
 
     attrs.update({'subject': args.subject, 'type': args.type})
 
-    credentials = service_account.Credentials.from_service_account_file("google-cloud-credentials.json")
+    credentials = service_account.Credentials.from_service_account_file(args.credentials)
     publisher = pubsub_v1.PublisherClient(credentials=credentials)
     topic_path = publisher.topic_path(credentials.project_id, args.topic)
     future = publisher.publish(topic_path, data=payload.encode("utf-8"), **attrs, contentType="text/json")
